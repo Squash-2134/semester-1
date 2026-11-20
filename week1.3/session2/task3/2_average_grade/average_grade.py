@@ -1,16 +1,26 @@
+
 # Week 1.3, Session 2: Calculate Average Grade and Write to a File
 
-# Open 'student_data.csv' to read each student's grades
-# hint: skip the header row with data[1:]
+# Open student_data.csv and read the data
+with open("student_data.csv", "r") as file:
+    data = file.readlines()
 
+# Skip the header row
+data = data[1:]
 
-# Read each student's grades and calculate their average grade
-# hint: CSV data comes as strings, convert grade columns to int() for maths
-# hint: student_data.csv has columns: ID, Name, Mathematics, Science, History
-# hint: average = (maths + science + history) / 3
+# Open report.txt for writing
+with open("report.txt", "w") as report:
 
+    # Read each student's grades and calculate their average
+    for row in data:
+        columns = row.strip().split(",")
 
-# Open a file called 'report.txt'
-# Write each student's name and their average grade to the report
-# hint: use 'w' mode to create a fresh report each time
-# hint: format averages nicely, maybe to 2 decimal places with :.2f
+        student_name = columns[1]
+        mathematics = int(columns[2])
+        science = int(columns[3])
+        history = int(columns[4])
+
+        average = (mathematics + science + history) / 3
+
+        # Write the student's name and average to the report
+        report.write(f"{student_name}: {average:.2f}\n")
