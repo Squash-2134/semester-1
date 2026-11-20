@@ -9,8 +9,6 @@
 #   - the widget which has been sold the most
 # and print these out in a nice, human-readable format
 
-# Week 1.3, Session 2: Sales Data Statistics
-
 try:
     # Open the file and read the data
     with open("sales.csv", "r") as file:
