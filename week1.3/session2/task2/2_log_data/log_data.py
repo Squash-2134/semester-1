@@ -1,15 +1,27 @@
 # Week 1.3, Session 2: Log Data Filtering
 
-# We want to find all failed login attempts based on Request and Status code 
-# (i.e., POST /login with the response 401) in a log file and print these out in a
-# human-readable format.
+try:
+    # Open and read the file
+    with open("log_data.csv", "r") as file:
+        data = file.readlines()
 
+    # Skip the header row
+    for row in data[1:]:
+        columns = row.strip().split(",")
 
-# open and read the file
+        date = columns[0]
+        time = columns[1]
+        ip_address = columns[2]
+        request = columns[4]
+        status_code = columns[5]
 
-# find all failed login attempts (POST /login with the response 401)
-# and print these out in a human-readable format:
-# IP address 192.168.1.17 failed to login at 10:42:12 on 2024-10-20
+        # Find failed login attempts
+        if request == "POST /login" and status_code == "401":
+            print(f"IP address {ip_address} failed to login at {time} on {date}")
+
+except FileNotFoundError:
+    print("Error: File not found.")
+
 
 
 # Hints:
