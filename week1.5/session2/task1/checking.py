@@ -1,6 +1,5 @@
-# Week 1.5, Session 2: Task 1
 
-# Add type checking to the constructor of Point
+# Week 1.5, Session 2: Task 1
 
 import math
 
@@ -14,6 +13,12 @@ class Point:
         """
         Creates a Point, given x & y coordinates.
         """
+        if not isinstance(x, (int, float)):
+            raise TypeError("x must be a number")
+
+        if not isinstance(y, (int, float)):
+            raise TypeError("y must be a number")
+
         self.x = x
         self.y = y
 
