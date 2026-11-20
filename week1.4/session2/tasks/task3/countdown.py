@@ -1,8 +1,7 @@
-# Week 4, Session 2: 
 
-# Given incomplete recursive function countdown with a docstring.
-# Your task is to complete the function based on the details in the docstring.
+# Week 4, Session 2: Countdown
 
+# Recursive countdown function
 def countdown(n):
     """
     This recursive function prints numbers from n down to 0.
@@ -14,16 +13,37 @@ def countdown(n):
         None, prints the countdown sequence from n to 0.
     """
 
-    # Complete your code here
-    # base case
+    # Base case
+    if n < 0:
+        return
 
-    # recursive case
+    print(n)
+
+    # Recursive case
+    countdown(n - 1)
 
 
-# check if correct output is produced
-countdown(30)    # 30 ... 0 (Note: each number is printed in a separate line)
-countdown(5)     # 5 ... 0  (Note: each number in printed in a separate line)
+# Check if correct output is produced
+countdown(30)
+countdown(5)
 
 
-# Once you have completed, your next task is to write an equivalent function that
-# uses a loop.
+# Equivalent function using a loop
+def countdown_loop(n):
+    """
+    This function prints numbers from n down to 0 using a loop.
+
+    Args:
+        n : int, positive integer representing the starting number.
+
+    Returns:
+        None, prints the countdown sequence from n to 0.
+    """
+
+    for number in range(n, -1, -1):
+        print(number)
+
+
+# Check the loop version
+countdown_loop(30)
+countdown_loop(5)
